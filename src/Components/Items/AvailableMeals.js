@@ -59,7 +59,10 @@ const AvailableMeals = () => {
         <h2>{selectedCategory} Items</h2>
         {getMenuItems().map((dish) => (
           <div key={dish.id}>
-            <p>{dish.name}</p>
+            <h3>{dish.name}</h3>
+            <h4>₹{dish.price}</h4>
+            <p>{dish.description}</p>
+            <hr></hr>
           </div>
         ))}
       </div>

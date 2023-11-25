@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <Fragment>
       <header className={classes.Header}>
-        <h1>Dilfoods</h1>
+        <h1>BiteBuddy</h1>
         <HeaderCartButton />
       </header>
       <div className={classes["main-img"]}>

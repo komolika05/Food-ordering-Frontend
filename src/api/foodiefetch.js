@@ -196,30 +196,38 @@ export async function fetchMenu() {
             },
             {
               name: "Veg hong kong noodles",
+              description:
+                "A Delightfully Wholesome Tasty Veg Hong Kong Noodles.",
               inStock: false,
               isVeg: true,
               price: 120,
             },
             {
               name: "Veg triple noodles",
+              description: "A Delightfully Wholesome Tasty Veg Triple Noodles.",
               inStock: false,
               isVeg: true,
               price: 100,
             },
             {
               name: "Veg garlic noodles",
+              description: "A Delightfully Wholesome Tasty Garlic Noodles.",
               inStock: false,
               isVeg: true,
               price: 120,
             },
             {
               name: "Veg manchurian noodles",
+              description:
+                "A Delightfully Wholesome Tasty Veg Manchurian Noodles.",
               inStock: false,
               isVeg: true,
               price: 130,
             },
             {
               name: "Veg combination noodles",
+              description:
+                "A Delightfully Wholesome Tasty Veg Combination Noodles.",
               inStock: false,
               isVeg: true,
               price: 120,
@@ -230,19 +238,22 @@ export async function fetchMenu() {
           title: "Soup",
           Dishes: [
             {
-              name: "Veg manchow soup",
+              name: "Veg Manchow Soup",
+              description: "Spicy and tasty Veg Manchow Soup",
               inStock: false,
               isVeg: true,
               price: 110,
             },
             {
               name: "Veg schezwan soup",
+              description: "Spicy and tasty Veg schezwan Soup",
               inStock: false,
               isVeg: true,
               price: 110,
             },
             {
               name: "Veg clear soup",
+              description: "Spicy and tasty Veg clear Soup",
               inStock: false,
               isVeg: true,
               price: 100,
@@ -254,18 +265,21 @@ export async function fetchMenu() {
           Dishes: [
             {
               name: "Veg manchurian dry",
+              description: "Spicy and tasty Veg Manchurian dry",
               inStock: false,
               isVeg: true,
               price: 150,
             },
             {
               name: "Veg manchurian gravy",
+              description: "Spicy and tasty Veg manchurian gravy",
               inStock: false,
               isVeg: true,
               price: 170,
             },
             {
               name: "Veg schezwan dry",
+              description: "Spicy and tasty Veg schezwan dry",
               inStock: false,
               isVeg: true,
               price: 150,

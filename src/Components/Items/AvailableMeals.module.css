@@ -16,3 +16,6 @@
     width: 10px;
   }
   
+  .selectedCategoryList h2{
+    color: rgb(144, 10, 50);
+  }

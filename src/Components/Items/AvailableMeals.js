@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import classes from "./AvailableMeals.module.css";
 import { fetchMenu } from "../../api/foodiefetch";
 import ScrollMenu from "../Layout/SliderMenu";
+import MenuItem from "../Cart/AddToCart";
 
-const AvailableMeals = () => {
+const AvailableMeals = ({onAddToCart}) => {
   const [restaurantData, setRestaurantData] = useState({});
   const [recommendedItems, setRecommendedItems] = useState([]);
   const [rice, setRice] = useState([]);
@@ -11,12 +12,15 @@ const AvailableMeals = () => {
   const [soup, setSoup] = useState([]);
   const [starter, setStarter] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("Recommended");
+  const [cartItems, setCartItems] = useState([]);
+  const [sliderItems, setSliderItems] = useState([]);
 
   useEffect(() => {
     const fetchMenuData = async () => {
       try {
         const response = await fetchMenu();
-        console.log(response.data.menu);
+        console.log(response.data.Menu);
+        setSliderItems(response.data.Menu.map((m) => m.title));
         setRestaurantData(response.data);
         setRecommendedItems(response.data.Menu[0].Dishes);
         setRice(response.data.Menu[1].Dishes);
@@ -54,17 +58,14 @@ const AvailableMeals = () => {
 
   return (
     <div className={classes.meals}>
-      <ScrollMenu onMenuItemClick={handleCategoryChange} />
+      <ScrollMenu onMenuItemClick={handleCategoryChange} items={sliderItems} />
       <div className={classes.selectedCategoryList}>
         <h2>{selectedCategory} Items</h2>
-        {getMenuItems().map((dish) => (
-          <div key={dish.id}>
-            <h3>{dish.name}</h3>
-            <h4>₹{dish.price}</h4>
-            <p>{dish.description}</p>
-            <hr></hr>
-          </div>
-        ))}
+        <div style={{ width: "100%", marginRight: "90%" }}>
+          {getMenuItems().map((dish) => (
+            <MenuItem key={dish.id} dish={dish} onAddToCart={onAddToCart} />
+          ))}
+        </div>
       </div>
     </div>
   );

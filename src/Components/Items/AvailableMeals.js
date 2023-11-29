@@ -4,7 +4,7 @@ import { fetchMenu } from "../../api/foodiefetch";
 import ScrollMenu from "../Layout/SliderMenu";
 import MenuItem from "../Cart/AddToCart";
 
-const AvailableMeals = ({onAddToCart}) => {
+const AvailableMeals = ({onAddToCart, onRemoveFromCart}) => {
   const [restaurantData, setRestaurantData] = useState({});
   const [recommendedItems, setRecommendedItems] = useState([]);
   const [rice, setRice] = useState([]);
@@ -12,7 +12,6 @@ const AvailableMeals = ({onAddToCart}) => {
   const [soup, setSoup] = useState([]);
   const [starter, setStarter] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("Recommended");
-  const [cartItems, setCartItems] = useState([]);
   const [sliderItems, setSliderItems] = useState([]);
 
   useEffect(() => {
@@ -63,7 +62,7 @@ const AvailableMeals = ({onAddToCart}) => {
         <h2>{selectedCategory} Items</h2>
         <div style={{ width: "100%", marginRight: "90%" }}>
           {getMenuItems().map((dish) => (
-            <MenuItem key={dish.id} dish={dish} onAddToCart={onAddToCart} />
+            <MenuItem key={dish.id} dish={dish} onAddToCart={onAddToCart} onRemoveFromCart={onRemoveFromCart} />
           ))}
         </div>
       </div>

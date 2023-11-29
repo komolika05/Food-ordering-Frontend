@@ -2,27 +2,25 @@ import React, { useState } from "react";
 import classes from "./AddToCart.module.css";
 import CartIcon from "./CartIcon";
 
-
-const MenuItem = ({ dish, onAddToCart }) => {
+const MenuItem = ({ dish, onAddToCart, onRemoveFromCart }) => {
   const [quantity, setQuantity] = useState(0);
-
 
   const handleIncrement = () => {
     setQuantity(quantity + 1);
+    onAddToCart(dish);
   };
 
   const handleDecrement = () => {
     if (quantity > 0) {
       setQuantity(quantity - 1);
+      onRemoveFromCart(dish);
     }
   };
 
   const handleAddToCart = () => {
-    if (quantity > 0) {
-      const newItem = { dish, quantity };
-      onAddToCart(newItem);
-      setQuantity(0);
-    }
+    const newItem = { dish, quantity: 1 };
+    onAddToCart(newItem);
+    setQuantity(1);
   };
 
   return (
@@ -33,19 +31,24 @@ const MenuItem = ({ dish, onAddToCart }) => {
         <p>{dish.description}</p>
       </div>
       <div className={classes.Cart}>
-        <div className="PlusBtn">
-          <button onClick={handleDecrement}>-</button>
-          <span>{quantity}</span>
-          <button onClick={handleIncrement}>+</button>
-        </div>
-        <button className={classes.AddBtn2} onClick={handleAddToCart} >
-          Add to Cart
-        </button>
+        {quantity > 0 ? (
+          <div className={classes.PlusBtn}>
+            <button onClick={handleDecrement}>-</button>
+            <span>{quantity}</span>
+            <button onClick={handleIncrement}>+</button>
+          </div>
+        ) : (
+          <button className={classes.AddBtn2} onClick={handleAddToCart}>
+            Add to Cart
+          </button>
+        )}
       </div>
-      
+
       <hr />
     </div>
   );
 };
+
+// Ternary operator => condition ? true : false
 
 export default MenuItem;

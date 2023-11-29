@@ -18,15 +18,29 @@ function App() {
     } else {
       setCartItems([
         ...cartItems,
-        { name: cartItem.dish.name, quantity: cartItem.quantity },
+        { name: cartItem.dish.name, quantity: 1 },
       ]);
     }
   };
 
+  const handleRemoveFromCart = (removeItem) => {
+    const existingItemIndex = cartItems.findIndex((item) => {
+      return item.name === removeItem.name;
+    });
+    if (existingItemIndex >= 0) {
+      const newCartItems = [...cartItems];
+      if (newCartItems[existingItemIndex].quantity > 1) {
+        newCartItems[existingItemIndex].quantity -= 1;
+      } else {
+        newCartItems.splice(existingItemIndex, 1);
+      }
+      setCartItems(newCartItems);
+    }
+  };
   return (
     <>
       <Header cartItems={cartItems} />
-      <Meals onAddToCart={handleAddToCart} />
+      <Meals onAddToCart={handleAddToCart} onRemoveFromCart={ handleRemoveFromCart} />
     </>
   );
 }

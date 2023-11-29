@@ -1,32 +1,45 @@
 .CartButton {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    
-  }
-  
-  button {
-    padding: 5px 10px;
-    cursor: pointer;
-    background-color: rgb(79, 128, 0);
-    color: white;
-    border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeInAnimation 0.5s ease-in-out; /* Use animation name without dot */
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
   }
 
-  .AddBtn2{
-    margin-left: auto;
-    margin-top: 10px;
-    width:100px;
-    background-color: rgb(79, 128, 0);
-    color: white;
-    border-radius: 14px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  span {
-    margin: 0 9px;
-  }
-  
+}
+.PlusBtn{
+  display: flex;
+  align-items: center;
+}
+button {
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: rgb(61, 98, 1);
+  color: white;
+  border-radius: 8px;
+}
+
+.AddBtn2 {
+  margin-left: auto;
+  margin-top: 10px;
+  width: 100px;
+  background-color: rgb(61, 98, 1);
+  color: white;
+  border-radius: 14px;
+}
+
+span {
+  margin: 0 9px;
+}

@@ -1,9 +1,20 @@
 import React, { useState } from "react";
 import classes from "./AddToCart.module.css";
 import CartIcon from "./CartIcon";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, removeItem } from "../../redux/cartSlice";
 
-const MenuItem = ({ dish, onAddToCart, onRemoveFromCart }) => {
+const MenuItem = ({ dish }) => {
   const [quantity, setQuantity] = useState(0);
+  const dispatch = useDispatch();
+
+  function onAddToCart(dish) {
+    dispatch(addItem(dish));
+  }
+
+  function onRemoveFromCart(dish) {
+    dispatch(removeItem(dish));
+  }
 
   const handleIncrement = () => {
     setQuantity(quantity + 1);
@@ -18,8 +29,7 @@ const MenuItem = ({ dish, onAddToCart, onRemoveFromCart }) => {
   };
 
   const handleAddToCart = () => {
-    const newItem = { dish, quantity: 1 };
-    onAddToCart(newItem);
+    onAddToCart(dish);
     setQuantity(1);
   };
 

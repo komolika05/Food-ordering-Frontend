@@ -4,13 +4,15 @@ import mainHeaderImage from "../../images/headerBanner.jpg";
 import { hover } from "@testing-library/user-event/dist/hover";
 import HeaderCartButton from "./HeaderCartButton";
 import MealsDescription from "../Items/MealsDescription";
+import { useSelector } from "react-redux";
 
-const Header = ({ cartItems }) => {
+const Header = () => {
+
   return (
     <Fragment>
       <header className={classes.Header}>
         <h1>BiteBuddy</h1>
-        <HeaderCartButton cartItems={cartItems} />
+        <HeaderCartButton />
       </header>
       <div className={classes["main-img"]}>
         <img src={mainHeaderImage} alt="Order Delicious Food" />

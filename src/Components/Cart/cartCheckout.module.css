@@ -1,0 +1,23 @@
+.cartCheckout {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .cartItems {
+    margin-top: 15px;
+  }
+  
+  .cartItem {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .totalAmount {
+    margin-top: 20px;
+    text-align: right;
+    font-size: 18px;
+  }
+  

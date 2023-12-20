@@ -16,7 +16,9 @@ const HeaderCartButton = () => {
           <CartIcon />
         </span>
         <span>Your Cart</span>
-        <span className={classes.badge}>{cartItems.items.length}</span>
+        {cartItems.items.length > 0 && (
+          <span className={classes.badge}>{cartItems.items.length}</span>
+        )}
       </button>
     </Link>
   );

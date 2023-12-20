@@ -10,6 +10,10 @@
   .cartCheckout h2{
     color: rgb(144, 10, 50) ;
   }
+
+  .cartCheckout h3{
+    text-align: center;
+  }
   
   .cartItems {
     margin-top: 20px;

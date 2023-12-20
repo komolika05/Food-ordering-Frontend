@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./AddToCart.module.css";
 import CartIcon from "./CartIcon";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "../../redux/cartSlice";
 
 const MenuItem = ({ dish }) => {
-  const [quantity, setQuantity] = useState(0);
+  const cart = useSelector((state) => state.cart);
+  const dishInCart = cart.items.find((item) => item.name === dish.name);
+  const [quantity, setQuantity] = useState(
+    dishInCart ? dishInCart.quantity : 0
+  );
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setQuantity(dishInCart ? dishInCart.quantity : 0);
+  }, [dishInCart]);
 
   function onAddToCart(dish) {
     dispatch(addItem(dish));
@@ -58,7 +66,5 @@ const MenuItem = ({ dish }) => {
     </div>
   );
 };
-
-// Ternary operator => condition ? true : false
 
 export default MenuItem;

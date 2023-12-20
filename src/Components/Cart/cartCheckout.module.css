@@ -1,18 +1,24 @@
 .cartCheckout {
-    margin: 20px;
+    margin: 4rem;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
+    width: 40%;
+    margin-left: 27%;
+  }
+
+  .cartCheckout h2{
+    color: rgb(144, 10, 50) ;
   }
   
   .cartItems {
-    margin-top: 15px;
+    margin-top: 20px;
   }
   
   .cartItem {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    justify-content:space-between;
+    margin-bottom: 18px;
   }
   
   .totalAmount {

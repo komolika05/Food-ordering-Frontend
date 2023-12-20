@@ -1,18 +1,24 @@
 import classes from "./HeaderCartButtom.module.css";
 import CartIcon from "../Cart/CartIcon";
 import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 
 const HeaderCartButton = () => {
   const cartItems = useSelector((state) => state.cart);
-  console.log(cartItems)
+  console.log(cartItems);
   return (
-    <button className={classes.button}>
-      <span className={classes.icon}>
-        <CartIcon />
-      </span>
-      <span>Your Cart</span>
-      <span className={classes.badge}>{cartItems.items.length}</span>
-    </button>
+    <Link
+      to="/cart-check-out"
+      style={{ textDecoration: "none", color: "inherit" }}
+    >
+      <button className={classes.button}>
+        <span className={classes.icon}>
+          <CartIcon />
+        </span>
+        <span>Your Cart</span>
+        <span className={classes.badge}>{cartItems.items.length}</span>
+      </button>
+    </Link>
   );
 };
 

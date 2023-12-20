@@ -13,6 +13,10 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     z-index: 10;
 }
+.Header h1{
+    color: white;
+    text-decoration: none;
+}
 
 .Header h1:hover{
     color: rgb(245, 212, 151);

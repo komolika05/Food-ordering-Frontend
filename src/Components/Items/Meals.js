@@ -1,10 +1,15 @@
 import AvailableMeals from "./AvailableMeals.js";
 import { Fragment } from "react";
+import Header from "../Layout/Header.js";
 
-const Meals = ({onAddToCart , onRemoveFromCart}) => {
+const Meals = ({ onAddToCart, onRemoveFromCart }) => {
   return (
     <Fragment>
-      <AvailableMeals onAddToCart={onAddToCart} onRemoveFromCart={onRemoveFromCart} />
+      <Header />
+      <AvailableMeals
+        onAddToCart={onAddToCart}
+        onRemoveFromCart={onRemoveFromCart}
+      />
     </Fragment>
   );
 };

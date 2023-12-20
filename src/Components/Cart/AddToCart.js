@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "../../redux/cartSlice";
 
 const MenuItem = ({ dish }) => {
+  //const cart = useSelector((state) => state.cart);
+  // const dishInCart = cart.items.find((item) => item.name === dish.name);
+  // const quantity = dish ? dish.quantity : 0;
   const [quantity, setQuantity] = useState(0);
   const dispatch = useDispatch();
 
@@ -58,7 +61,5 @@ const MenuItem = ({ dish }) => {
     </div>
   );
 };
-
-// Ternary operator => condition ? true : false
 
 export default MenuItem;

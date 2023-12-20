@@ -9,7 +9,7 @@ import Noodles from "../../images/Noodles.png";
 import Soup from "../../images/Soup.jpeg";
 import Starter from "../../images/Starters.png";
 
-const ItemSlider = ({ items, onMenuItemClick }) => {
+const ItemSlider = ({ items, onMenuItemClick, selectedItem }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -36,7 +36,13 @@ const ItemSlider = ({ items, onMenuItemClick }) => {
               <img src={item.image} alt={`Slide ${index}`} />
             </div>
             <br />
-            <label>{item.name}</label>
+            <label
+              className={`${
+                selectedItem === item.name ? "sliderItemNameSelected" : ""
+              }`}
+            >
+              {item.name}
+            </label>
           </div>
         ))}
       </Slider>
@@ -44,7 +50,7 @@ const ItemSlider = ({ items, onMenuItemClick }) => {
   );
 };
 
-const ScrollMenu = ({ onMenuItemClick, items }) => {
+const ScrollMenu = ({ onMenuItemClick, items, selectedItem }) => {
   const images = [recommendedImage, Rice, Noodles, Soup, Starter];
 
   return (
@@ -55,6 +61,7 @@ const ScrollMenu = ({ onMenuItemClick, items }) => {
           image: images[index],
         }))}
         onMenuItemClick={onMenuItemClick}
+        selectedItem={selectedItem}
       />
     </div>
   );

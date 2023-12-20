@@ -23,7 +23,7 @@ const CartCheckout = () => {
       <div className={classes.cartCheckout}>
         <h2>Your Cart</h2>
         {cart.items.length === 0 ? (
-          <h3>Sorry! Your cart is empty.</h3>
+          <h3>No items in the cart yet. Start foodying!</h3>
         ) : (
           <div>
             <div className={classes.cartItems}>
